@@ -50,10 +50,6 @@ aws s3api delete-bucket --bucket $BUCKET_NAME
 # Check if the bucket was deleted successfully
 if [ $? -eq 0 ]; then
     echo "Bucket $BUCKET_NAME deleted successfully!"
-    
-    # List the buckets to confirm
-    echo "Current S3 buckets:"
-    aws s3 ls
 else
     echo "Failed to delete bucket $BUCKET_NAME. Check if it's empty."
     exit 1
