@@ -18,8 +18,13 @@ BUCKET_NAME=${1:-$S3_BUCKET_NAME}
 # Set the region (default to us-east-1 if not provided)
 REGION=${2:-$AWS_REGION}
 
-echo "Creating S3 bucket: $BUCKET_NAME in region: $REGION"
+# Check if bucket already exists
+if aws s3api head-bucket --bucket $BUCKET_NAME 2>/dev/null; then
+    echo "Bucket $BUCKET_NAME already exists! Skipping creation."
+    exit 0
+fi
 
+echo "Creating S3 bucket: $BUCKET_NAME in region: $REGION"
 # Create the bucket
 aws s3api create-bucket \
     --bucket $BUCKET_NAME \
