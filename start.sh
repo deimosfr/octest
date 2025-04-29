@@ -13,10 +13,10 @@ if [ -z "$1" ] && [ -z "$S3_BUCKET_NAME" ]; then
 fi
 
 # Set the bucket name from argument or environment variable
-BUCKET_NAME=${1:-$AWS_REGION}
+BUCKET_NAME=${1:-$S3_BUCKET_NAME}
 
 # Set the region (default to us-east-1 if not provided)
-REGION=${2:-us-east-1}
+REGION=${2:-$AWS_REGION}
 
 echo "Creating S3 bucket: $BUCKET_NAME in region: $REGION"
 
