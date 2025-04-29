@@ -1,0 +1,30 @@
+# AWS S3 CLI Example with Qovery Lifecycle Job
+
+This example demonstrates how to use AWS S3 CLI commands within a Qovery Lifecycle Job.
+
+## Overview
+
+This project shows how to:
+
+- Set up a Lifecycle Job in Qovery
+- Use AWS S3 CLI to interact with S3 buckets
+- Execute S3 operations as automated tasks (create and delete buckets)
+
+## Configuration
+
+1. Configure your Qovery Lifecycle Job
+2. Set up AWS credentials as environment variables:
+   - `AWS_ACCESS_KEY_ID`
+   - `AWS_SECRET_ACCESS_KEY`
+   - `AWS_DEFAULT_REGION`
+
+## Usage
+
+The Lifecycle Job will execute the specified AWS S3 CLI commands based on your configuration.
+
+Check the Qovery documentation for more details on setting up and managing Lifecycle Jobs.
+
+## Resources
+
+- [Qovery Documentation](https://hub.qovery.com/docs/using-qovery/configuration/lifecycle-job/)
+- [AWS S3 CLI Documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/index.html)
