@@ -2,16 +2,18 @@
 
 # Script to create an S3 bucket
 # Usage: ./start.sh [bucket-name] [region]
+# Or set S3_BUCKET_NAME environment variable
 
-# Check if bucket name is provided
-if [ -z "$1" ]; then
+# Check if bucket name is provided as argument or environment variable
+if [ -z "$1" ] && [ -z "$S3_BUCKET_NAME" ]; then
     echo "Error: Bucket name is required"
     echo "Usage: ./start.sh [bucket-name] [region]"
+    echo "Or set S3_BUCKET_NAME environment variable"
     exit 1
 fi
 
-# Set the bucket name
-BUCKET_NAME=$1
+# Set the bucket name from argument or environment variable
+BUCKET_NAME=${1:-$AWS_REGION}
 
 # Set the region (default to us-east-1 if not provided)
 REGION=${2:-us-east-1}

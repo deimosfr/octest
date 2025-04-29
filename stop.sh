@@ -2,16 +2,18 @@
 
 # Script to delete an S3 bucket
 # Usage: ./stop.sh [bucket-name]
+# Or set S3_BUCKET_NAME environment variable
 
-# Check if bucket name is provided
-if [ -z "$1" ]; then
+# Check if bucket name is provided as argument or environment variable
+if [ -z "$1" ] && [ -z "$S3_BUCKET_NAME" ]; then
     echo "Error: Bucket name is required"
     echo "Usage: ./stop.sh [bucket-name]"
+    echo "Or set S3_BUCKET_NAME environment variable"
     exit 1
 fi
 
-# Set the bucket name
-BUCKET_NAME=$1
+# Set the bucket name from argument or environment variable
+BUCKET_NAME=${1:-$S3_BUCKET_NAME}
 
 echo "Preparing to delete S3 bucket: $BUCKET_NAME"
 

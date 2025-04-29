@@ -25,8 +25,7 @@ COPY start.sh /app/scripts/
 COPY stop.sh /app/scripts/
 
 # Make scripts executable
-RUN chmod +x /app/scripts/start.sh && \
-    chmod +x /app/scripts/stop.sh
+RUN chmod +x /app/scripts/*.sh
 
 # Set working directory
 WORKDIR /app/scripts
