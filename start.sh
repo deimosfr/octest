@@ -36,10 +36,6 @@ if [ $? -eq 0 ]; then
         --versioning-configuration Status=Enabled
     
     echo "Bucket versioning enabled"
-    
-    # List the buckets to confirm
-    echo "Current S3 buckets:"
-    aws s3 ls
 else
     echo "Failed to create bucket $BUCKET_NAME"
     exit 1
